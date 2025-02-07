@@ -1,3 +1,13 @@
+<?php
+// Store the flag in a PHP variable - not visible in source
+$hidden_flag = "second_flag{xss_protection_bypassed}";
+
+// Function to reveal flag - only called through XSS
+function getFlag() {
+    global $hidden_flag;
+    return $hidden_flag;
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -160,6 +170,9 @@
             position: absolute;
             border-width: 0;
         }
+        .debug-info {
+            display: none;
+        }
     </style>
 </head>
 <body>
@@ -202,15 +215,7 @@
             Secured with Advanced Protection™
         </div>
 
-        <!-- Debug mode hint -->
-        <div class="source-hint">
-            Try debugMode('superadmin') to access advanced features
-        </div>
-
-        <!-- Hidden flag element -->
-        <div class="debug-info">
-            second_flag{xss_protection_bypassed}
-        </div>
+        <div id="flag-container" class="debug-info"></div>
     </div>
 
     <script>
@@ -243,18 +248,18 @@
             document.getElementById('username').value = '';
             document.getElementById('message').value = '';
             error.textContent = '';
-
-            // Add success animation
-            const messages = document.querySelectorAll('.message');
-            const lastMessage = messages[messages.length - 1];
-            lastMessage.style.animation = 'none';
-            lastMessage.offsetHeight; // Trigger reflow
-            lastMessage.style.animation = 'slideIn 0.3s ease';
         }
 
+        // Modified debugMode function to fetch flag via AJAX
         function debugMode(key) {
             if(key === 'superadmin') {
-                document.querySelector('.debug-info').style.display = 'block';
+                // Make AJAX request to get flag
+                fetch('get_flag.php')
+                    .then(response => response.text())
+                    .then(flag => {
+                        document.getElementById('flag-container').style.display = 'block';
+                        document.getElementById('flag-container').textContent = flag;
+                    });
             }
         }
     </script>
