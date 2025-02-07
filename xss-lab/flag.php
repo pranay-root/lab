@@ -11,7 +11,7 @@ if(isset($_SERVER['HTTP_X_REQUESTED_WITH']) &&
     echo $hidden_flag;
 } else {
     // Redirect non-AJAX requests
-    header('Location: index.php');
+    header('Location: xss-lab.php');
     exit();
 }
 ?>
