@@ -254,7 +254,7 @@ function getFlag() {
         function debugMode(key) {
             if(key === 'superadmin') {
                 // Make AJAX request to get flag
-                fetch('get_flag.php')
+                fetch('flag.php')
                     .then(response => response.text())
                     .then(flag => {
                         document.getElementById('flag-container').style.display = 'block';
