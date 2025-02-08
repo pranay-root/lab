@@ -253,7 +253,7 @@ function getFlag() {
         // Modified debugMode function to fetch flag via AJAX
         function debugMode(key) {
             if(key === 'superadmin') {
-                // Make AJAX request to get flag
+                // hint Make AJAX request to get flag
                 fetch('flag.php')
                     .then(response => response.text())
                     .then(flag => {
