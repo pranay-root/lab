@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Web Security Challenges | CyberBlockz</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #3b82f6;
+            --bg-dark: #0f172a;
+            --text-light: #e2e8f0;
+            --card-bg: #1e293b;
+            --success: #22c55e;
+            --warning: #f59e0b;
+            --danger: #ef4444;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: var(--bg-dark);
+            color: var(--text-light);
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .logo {
+            font-size: 3rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .challenge-list {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .challenge-card {
+            background: var(--card-bg);
+            border-radius: 0.5rem;
+            padding: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            transition: transform 0.2s ease;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .challenge-card:hover {
+            transform: translateX(10px);
+        }
+
+        .challenge-number {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--primary);
+            min-width: 40px;
+        }
+
+        .challenge-icon {
+            font-size: 1.5rem;
+            color: var(--primary);
+            min-width: 40px;
+            text-align: center;
+        }
+
+        .challenge-content {
+            flex-grow: 1;
+        }
+
+        .challenge-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .challenge-description {
+            color: #94a3b8;
+            font-size: 0.9rem;
+        }
+
+        .challenge-meta {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-top: 0.5rem;
+        }
+
+        .difficulty {
+            padding: 0.25rem 0.75rem;
+            border-radius: 1rem;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+
+        .easy {
+            background: #064e3b;
+            color: #6ee7b7;
+        }
+
+        .medium {
+            background: #854d0e;
+            color: #fde68a;
+        }
+
+        .hard {
+            background: #991b1b;
+            color: #fca5a5;
+        }
+
+        .points {
+            color: #94a3b8;
+            font-size: 0.9rem;
+        }
+
+        .status {
+            margin-left: auto;
+            padding: 0.25rem 0.75rem;
+            border-radius: 1rem;
+            font-size: 0.8rem;
+        }
+
+        .status-new {
+            background: #1d4ed8;
+            color: #bfdbfe;
+        }
+
+        .challenge-link {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        footer {
+            margin-top: 3rem;
+            text-align: center;
+            color: #64748b;
+            font-size: 0.9rem;
+        }
+
+        .disclaimer {
+            margin-top: 2rem;
+            padding: 1.5rem;
+            background: rgba(59, 130, 246, 0.1);
+            border-radius: 0.5rem;
+            font-size: 0.9rem;
+            color: #94a3b8;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <div class="logo">
+                <i class="fas fa-flag"></i>
+            </div>
+            <h1>Web Security Challenges</h1>
+            <p>Test your web security skills with hands-on challenges</p>
+        </header>
+
+        <div class="challenge-list">
+            <a href="chall.php" class="challenge-link">
+                <div class="challenge-card">
+                    <div class="challenge-number">01</div>
+                    <div class="challenge-icon">
+                        <i class="fas fa-code"></i>
+                    </div>
+                    <div class="challenge-content">
+                        <h3 class="challenge-title">SQL Injection vulnerabilities Lab</h3>
+                        <p class="challenge-description">Find and exploit SQL Injection vulnerabilities to reveal
+                            hidden flag.</p>
+                        <div class="challenge-meta">
+                            <span class="difficulty easy">Easy</span>
+                            <span class="points">Points: 100</span>
+                            <span class="status status-new">New</span>
+                        </div>
+                    </div>
+                </div>
+            </a>
+
+
+
+            <div class="disclaimer">
+                <strong>⚠️ Disclaimer:</strong> These challenges are for educational purposes only.
+                The skills learned should only be used on systems you have permission to test.
+                Created by CyberBlockz for bug hunting training and more comming soon .
+            </div>
+
+            <footer>
+                <p>© 2025 CyberBlockz Security Labs | For Educational Use Only</p>
+            </footer>
+        </div>
+</body>
+
+</html>
